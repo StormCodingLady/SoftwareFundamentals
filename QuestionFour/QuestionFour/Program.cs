@@ -13,17 +13,17 @@ namespace QuestionFour
             double a = 0;
             double b = 0;
             double c = 0;
-            int intInput;
+            double intInput;
             bool noError = false;
             bool noError2 = false;
             bool noError3 = false;
 
             while (noError == false)
             {
-                Console.WriteLine("Integer 'a' equals...");
-                Console.WriteLine("(Enter an integer from the number pad)");
+                Console.WriteLine("Number 'a' equals...");
+                Console.WriteLine("(Enter a real number from the number pad)");
                 string input = Console.ReadLine();
-                bool isInt = System.Int32.TryParse(input, out intInput);
+                bool isInt = System.Double.TryParse(input, out intInput);
                 if (isInt)
                 {
                     a = intInput;
@@ -39,10 +39,10 @@ namespace QuestionFour
 
             while (noError2 == false)
             {
-                Console.WriteLine("Integer 'b' equals...");
-                Console.WriteLine("(Enter an integer from the number pad)");
+                Console.WriteLine("Number 'b' equals...");
+                Console.WriteLine("(Enter a real number from the number pad)");
                 string input = Console.ReadLine();
-                bool isInt = System.Int32.TryParse(input, out intInput);
+                bool isInt = System.Double.TryParse(input, out intInput);
                 if (isInt)
                 {
                     b = intInput;
@@ -58,10 +58,10 @@ namespace QuestionFour
 
             while (noError3 == false)
             {
-                Console.WriteLine("Integer 'c' equals...");
-                Console.WriteLine("(Enter an integer from the number pad)");
+                Console.WriteLine("Number 'c' equals...");
+                Console.WriteLine("(Enter a real number from the number pad)");
                 string input = Console.ReadLine();
-                bool isInt = System.Int32.TryParse(input, out intInput);
+                bool isInt = System.Double.TryParse(input, out intInput);
                 if (isInt)
                 {
                     c = intInput;
@@ -74,8 +74,10 @@ namespace QuestionFour
                 }
             }
 
-            NumSort(a, b, c);
-            Console.WriteLine("{0} {1} {2}", a,b,c);
+            Numbers givAn = NumSort(a, b, c);
+            Console.WriteLine();
+            Console.WriteLine("The numbers you have given written from least to greatest are...");
+            Console.WriteLine("{0} {1} {2}", givAn.x, givAn.y, givAn.z);
             Console.ReadLine();
         }
 
