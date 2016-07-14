@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using QuestionFour;
+using static QuestionFour.Program;
 
 namespace QuestionFourTest
 {
@@ -22,17 +23,18 @@ namespace QuestionFourTest
             int numberRows = descOrd.GetLength(0);
             int numberColumns = descOrd.GetLength(1);
 
-            double small = 1.2;
-            double medium = 1.4;
-            double large = 1.6;
-
+            Numbers testVal = new Numbers();
+            testVal.x = 1.2;
+            testVal.y = 1.4;
+            testVal.z = 1.6;
+            
             for (int i = 0; i < numberRows; i++)
             {
                 double a = descOrd[i, 0];
                 double b = descOrd[i, 1];
                 double c = descOrd[i, 2];
-                Program.NumSort(a, b, c);
-                Assert.IsTrue(small == a && medium == b && large == c);
+                Numbers finAn = Program.NumSort(a, b, c);
+                Assert.IsTrue(testVal.x == finAn.x && testVal.y == finAn.y && testVal.z == finAn.z);
             }
         }
     }
