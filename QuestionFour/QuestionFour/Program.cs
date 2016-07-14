@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuestionFour
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -75,7 +75,7 @@ namespace QuestionFour
             }
 
             NumSort(a, b, c);
-            Console.WriteLine("{0}, {1}, {2}");
+            Console.WriteLine("{0} {1} {2}", a,b,c);
             Console.ReadLine();
         }
 
@@ -149,8 +149,6 @@ namespace QuestionFour
             retVal.y = b;
             retVal.z = c;
             return retVal;
-        }
-
-        
+        }    
     }
 }
