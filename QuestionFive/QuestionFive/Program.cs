@@ -12,15 +12,14 @@ namespace QuestionFive
         {
             int a = 0;
 
-            Values userInput = UserInput(a);
-            int h = userInput.x;
-            string verbFeed = EngRet(h);
+            int userInput = UserInput(a);
+            string verbFeed = EngRet(userInput);
             Console.WriteLine();
             Console.WriteLine("Your number in written form is '{0}'.", verbFeed);
             Console.ReadLine();
         }
         
-        public static Values UserInput(int a)
+        public static int UserInput(int a)
         {
 
             int intInput;
@@ -44,17 +43,14 @@ namespace QuestionFive
                 }
 
             }
-
-            Values mainVal = new Values();
-            mainVal.x = a;
-            return mainVal;   
+            return a;   
         }
 
-        public static string EngRet(int h)
+        public static string EngRet(int userInput)
         {
            string givBak;
 
-           switch (h)
+           switch (userInput)
             {
                 case 0:
                     givBak = "Zero";
@@ -103,10 +99,5 @@ namespace QuestionFive
 
             return givBak;
         }
-    }
-
-    public class Values
-    {
-        public int x;
     }
 }
