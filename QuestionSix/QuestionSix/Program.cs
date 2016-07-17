@@ -24,10 +24,13 @@ namespace QuestionSix
             double intInput;
             int m = 0;
 
-            Console.WriteLine("This program finds all real solutions to the quadratic equation.");
+            Console.WriteLine("This program finds all real solutions to the quad-");
+            Console.WriteLine("ratic equation (ax^2 + bx + c = 0). If any are to");
+            Console.WriteLine("be found.");
             Console.WriteLine("");
             Console.WriteLine("(Enter coefficients a, b, and c using numbers only.");
-            Console.WriteLine("Press 'enter' after typing each coefficient.)");
+            Console.WriteLine("Press 'enter' after typing each coefficient. Start-");
+            Console.WriteLine("ing with coefficient 'a'.)");
 
             while (m < 3)
             {
