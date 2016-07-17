@@ -22,59 +22,53 @@ namespace QuestionSix
         public static Coefficient UserInput(double a, double b, double c)
         {
             double intInput;
-            bool noError = false;
+            int m = 0;
 
             Console.WriteLine("This program finds all real solutions to the quadratic equation.");
+            Console.WriteLine("");
+            Console.WriteLine("(Enter coefficients a, b, and c using numbers only.");
+            Console.WriteLine("Press 'enter' after typing each coefficient.)");
 
-            while (noError == false)
+            while (m < 3)
             {
-                Console.WriteLine("");
-                Console.WriteLine("(Enter coefficients a, b, and c using numbers only.");
-                Console.WriteLine("Press 'enter' after typing each coefficient.)");
                 string input = Console.ReadLine();
-                string input2 = Console.ReadLine();
-                string input3 = Console.ReadLine();
                 bool isInt = System.Double.TryParse(input, out intInput);
                 if (isInt)
                 {
-                    a = intInput;
+                    switch (m)
+                    {
+                        case 0:
+                            a = intInput;
+                            break;
+                        case 1:
+                            b = intInput;
+                            break;
+                        case 2:
+                            c = intInput;
+                            break;
+                        default:
+                            Console.WriteLine("Error");
+                            break;
+                    }
+                    m++;
                 }
                 else
                 {
-                    Console.WriteLine("Not a valid input.");
-                    Console.WriteLine();
-                    a = 404;
-                }
-                bool isInt2 = System.Double.TryParse(input2, out intInput);
-                if (isInt2)
-                {
-                    b = intInput;
-                }
-                else
-                {
-                    Console.WriteLine("Not a valid input.");
-                    Console.WriteLine();
-                    b = 404;
-                }
-                bool isInt3 = System.Double.TryParse(input3, out intInput);
-                if (isInt3)
-                {
-                    c = intInput;
-                }
-                else
-                {
-                    Console.WriteLine("Not a valid input.");
-                    Console.WriteLine();
-                    c = 404;
-                }
-
-                if (a == 404 || b == 404 || c == 404)
-                {
-
-                }
-                else
-                {
-                    noError = true;
+                    switch (m)
+                    {
+                        case 0:
+                            Console.WriteLine("Invalid input! Enter an appropriate value for 'a'.");
+                            break;
+                        case 1:
+                            Console.WriteLine("Invalid input! Enter an appropriate value for 'b'.");
+                            break;
+                        case 2:
+                            Console.WriteLine("Invalid input! Enter an appropriate value for 'c'.");
+                            break;
+                        default:
+                            Console.WriteLine("Error");
+                            break;
+                    }
                 }
             }
 
