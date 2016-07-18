@@ -15,16 +15,29 @@ namespace QuestionSix
             double c = 0;
 
             Coefficient printVal = UserInput(a, b, c);
-            Console.WriteLine("{0}, {1}, {2}", printVal.x, printVal.y, printVal.z);
+            double numSol = SoluEval(printVal.x, printVal.y, printVal.z);
+            Console.WriteLine("");
+            Console.WriteLine("Your problem has '{0}' real solution(s).", numSol);
+            Console.WriteLine("");
+            Coefficient finAn = CalAnTwo(printVal.x, printVal.y, printVal.z);
+            UserView(finAn);
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// Fetch user input for coefficients of the quadratic equation.
+        /// </summary>
+        /// <param name="a">Quadratic coefficient</param>
+        /// <param name="b">Quadratic coefficient</param>
+        /// <param name="c">Quadratic coefficient</param>
+        /// <returns>A tuple of quadratic coefficients</returns>
         public static Coefficient UserInput(double a, double b, double c)
         {
+            string current = "a";
             double intInput;
             int m = 0;
 
-            Console.WriteLine("This program finds all real solutions to the quad-");
+            Console.WriteLine("This program finds all REAL solutions to the quad-");
             Console.WriteLine("ratic equation (ax^2 + bx + c = 0). If any are to");
             Console.WriteLine("be found.");
             Console.WriteLine("");
@@ -36,42 +49,35 @@ namespace QuestionSix
             {
                 string input = Console.ReadLine();
                 bool isInt = System.Double.TryParse(input, out intInput);
+                
+                /*This switch establishes both the success and error
+                response, and which is used is decided later.*/
+                switch (m)
+                {
+                    case 0:
+                        current = "a";
+                        a = intInput;
+                        break;
+                    case 1:
+                        current = "b";
+                        b = intInput;
+                        break;
+                    case 2:
+                        current = "c";
+                        c = intInput;
+                        break;
+                    default:
+                        Console.WriteLine("Error");
+                        break;
+                }
+                
                 if (isInt)
                 {
-                    switch (m)
-                    {
-                        case 0:
-                            a = intInput;
-                            break;
-                        case 1:
-                            b = intInput;
-                            break;
-                        case 2:
-                            c = intInput;
-                            break;
-                        default:
-                            Console.WriteLine("Error");
-                            break;
-                    }
                     m++;
-                }
-                else
+                }else
                 {
-                    switch (m)
-                    {
-                        case 0:
-                            Console.WriteLine("Invalid input! Enter an appropriate value for 'a'.");
-                            break;
-                        case 1:
-                            Console.WriteLine("Invalid input! Enter an appropriate value for 'b'.");
-                            break;
-                        case 2:
-                            Console.WriteLine("Invalid input! Enter an appropriate value for 'c'.");
-                            break;
-                        default:
-                            Console.WriteLine("Error");
-                            break;
-                    }
+                    Console.WriteLine("Invalid input! Enter an appropriate value for '{0}'.", current);
+                    Console.WriteLine("");
                 }
             }
 
@@ -82,8 +88,75 @@ namespace QuestionSix
             return endVal;
         }
 
+        /// <summary>
+        /// Test the number of real solutions according to the user input.
+        /// </summary>
+        /// <param name="a">Quadratic coefficient</param>
+        /// <param name="b">Quadratic coefficient</param>
+        /// <param name="c">Quadratic coefficient</param>
+        /// <returns>The number of real solutions.</returns>
+        public static double SoluEval(double a, double b, double c)
+        {
+            double numSolTest = (b * b) - 4 * a * c;
+
+            if (numSolTest == 0)
+            {
+                numSolTest = 1;
+            }
+            else if (numSolTest > 0)
+            {
+                numSolTest = 2;
+            }
+            else
+            {
+                numSolTest = 0;
+            }
+
+            return numSolTest;
+        }
+
+        public static Coefficient CalAnTwo(double a, double b, double c)
+        {
+            double discriminant = (b * b) - 4 * a * c;
+            double sqrt = Math.Sqrt(discriminant);
+            double twoA = 2 * a;
+            double anOne = (-(b) + (sqrt)) / twoA;
+            double anTwo = (-(b) - (sqrt)) / twoA;
+
+            if (anOne == anTwo)
+            {
+                Coefficient oneVal = new Coefficient();
+                oneVal.z = anOne;
+                oneVal.w = discriminant;
+                return oneVal;
+            }
+
+            Coefficient twoVal = new Coefficient();
+            twoVal.x = anOne;
+            twoVal.y = anTwo;
+            twoVal.w = discriminant;
+            return twoVal;
+        }
+
+        public static void UserView(Coefficient finAn)
+        {
+            if (finAn.w < 0)
+            {
+            }
+            else if (finAn.z == 0)
+            {
+                Console.WriteLine("{0} or {1}", finAn.x, finAn.y);
+            }
+            
+            if (finAn.x == 0 && finAn.y == 0)
+            {
+                Console.WriteLine("{0}", finAn.z);
+            }
+        }
+
         public class Coefficient
         {
+            public double w;
             public double x;
             public double y;
             public double z;
