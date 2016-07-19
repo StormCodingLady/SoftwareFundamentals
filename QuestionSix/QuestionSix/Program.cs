@@ -16,11 +16,14 @@ namespace QuestionSix
 
             Coefficient printVal = UserInput(a, b, c);
             double numSol = SoluEval(printVal.x, printVal.y, printVal.z);
+
             Console.WriteLine("");
             Console.WriteLine("Your problem has '{0}' real solution(s).", numSol);
             Console.WriteLine("");
-            Coefficient finAn = CalAnTwo(printVal.x, printVal.y, printVal.z);
+
+            Coefficient finAn = SolveQuadratic(printVal.x, printVal.y, printVal.z);
             UserView(finAn);
+
             Console.ReadLine();
         }
 
@@ -49,7 +52,7 @@ namespace QuestionSix
             {
                 string input = Console.ReadLine();
                 bool isInt = System.Double.TryParse(input, out intInput);
-                
+
                 /*This switch establishes both the success and error
                 response, and which is used is decided later.*/
                 switch (m)
@@ -70,7 +73,7 @@ namespace QuestionSix
                         Console.WriteLine("Error");
                         break;
                 }
-                
+
                 if (isInt)
                 {
                     m++;
@@ -89,7 +92,7 @@ namespace QuestionSix
         }
 
         /// <summary>
-        /// Test the number of real solutions according to the user input.
+        /// Test the number of real solutions, given a set of coefficients for the quadratic formula.
         /// </summary>
         /// <param name="a">Quadratic coefficient</param>
         /// <param name="b">Quadratic coefficient</param>
@@ -115,7 +118,14 @@ namespace QuestionSix
             return numSolTest;
         }
 
-        public static Coefficient CalAnTwo(double a, double b, double c)
+        /// <summary>
+        /// Utilizes the quadratic formula to generate solutions.
+        /// </summary>
+        /// <param name="a">Quadratic coefficient</param>
+        /// <param name="b">Quadratic coefficient</param>
+        /// <param name="c">Quadratic coefficient</param>
+        /// <returns>Either one real root, two real roots, or two complex solutionis, as well as the discriminant.</returns>
+        public static Coefficient SolveQuadratic(double a, double b, double c)
         {
             double discriminant = (b * b) - 4 * a * c;
             double sqrt = Math.Sqrt(discriminant);
@@ -138,6 +148,10 @@ namespace QuestionSix
             return twoVal;
         }
 
+        /// <summary>
+        /// Presents the final answer(s) to the user.
+        /// </summary>
+        /// <param name="finAn">feeds in the the real or complex solutions as well as the discriminant.</param>
         public static void UserView(Coefficient finAn)
         {
             if (finAn.w < 0)
@@ -154,6 +168,9 @@ namespace QuestionSix
             }
         }
 
+        /// <summary>
+        /// A class that handles the coefficients as well as the discriminant.
+        /// </summary>
         public class Coefficient
         {
             public double w;
