@@ -27,7 +27,6 @@ namespace Chp6Lsn3
             bool resolved = false;
             int[] userSeries = new int[2];
             int i = 0;
-            int m = 1;
             Console.WriteLine("Please enter a series of positive integers. When finished enter the word 'done'.");
 
             while (resolved == false)
@@ -38,13 +37,12 @@ namespace Chp6Lsn3
 
                 if (isInt)
                 {
-                    if (m > numColumns)
+                    if (i + 1 > numColumns)
                     {
                         Array.Resize(ref userSeries, i + 1);
                     }
                     userSeries[i] = isInput;
                     i++;
-                    m++;
                 }
                 else if (input == "done")
                 {

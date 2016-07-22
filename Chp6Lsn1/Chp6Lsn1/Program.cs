@@ -57,11 +57,6 @@ namespace Chp6Lsn1
 
             do
             {
-                if(i % 3 == 0 && i % 7 == 0)
-                {
-                    i++;
-                }
-
                 holdSequence[i-1] = i;
                 i++;
             } while (i <= N);
