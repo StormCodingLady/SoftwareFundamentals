@@ -44,15 +44,6 @@ namespace Chp6Lsn1
 
         public static void PrintSequence(int[] N, int n)
         {
-            //int i = 0;
-
-            //do
-            //{
-            //    Console.Write("{0}, ", N[i]);
-            //    i++;
-            //} while (i < n - 1);
-            //Console.Write("{0}", n);
-
             string foo = String.Join(", ", N);
             Console.WriteLine(foo);
 
