@@ -8,7 +8,7 @@ namespace Chp6Lsn1Test
     public class UnitTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void CheckSequence_FifteenPlaces()
         {
             int[] forFifteen = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
 

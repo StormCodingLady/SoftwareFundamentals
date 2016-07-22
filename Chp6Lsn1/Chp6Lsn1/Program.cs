@@ -13,7 +13,7 @@ namespace Chp6Lsn1
             int n = 0;
             int m = UsesrInput(n);
             int[] N = CalcSequence(m);
-            PrintSequence(N);
+            PrintSequence(N, m);
         }
 
         public static int UsesrInput(int N)
@@ -42,9 +42,20 @@ namespace Chp6Lsn1
             return N;
         }
 
-        public static void PrintSequence(int[] N)
+        public static void PrintSequence(int[] N, int n)
         {
-            Console.Write("", N);
+            //int i = 0;
+
+            //do
+            //{
+            //    Console.Write("{0}, ", N[i]);
+            //    i++;
+            //} while (i < n - 1);
+            //Console.Write("{0}", n);
+
+            string foo = String.Join(", ", N);
+            Console.WriteLine(foo);
+
             Console.ReadLine();
         }
 
