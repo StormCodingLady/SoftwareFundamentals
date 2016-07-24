@@ -16,6 +16,11 @@ namespace Chp7Lsn2
             ReadOut(toCompare, isEqual);
         }
 
+        /// <summary>
+        /// Creates two arrays based off of user input.
+        /// </summary>
+        /// <param name="jaggedArray">A jagged array with an index of two.</param>
+        /// <returns>An array containing two arrays.</returns>
         public static int[][] UsesrInput(int[][] jaggedArray)
         {
             int isInput;
@@ -60,6 +65,11 @@ namespace Chp7Lsn2
             return jaggedArray;
         }
 
+        /// <summary>
+        /// Checks if the two arrays have equivilant lengths and if each corresponding index contains the same integer.
+        /// </summary>
+        /// <param name="toCompare">Jagged array with filled values.</param>
+        /// <returns>true or false.</returns>
         public static bool EquivalentCheck(int[][] toCompare)
         {
             int lengthZero = toCompare[0].GetLength(0);
@@ -81,11 +91,19 @@ namespace Chp7Lsn2
             return false;
         }
 
+        /// <summary>
+        /// Displays in the console arrays 1 and 2. Also displays if the arrays are equivalent.
+        /// </summary>
+        /// <param name="toRead">Both Arrays</param>
+        /// <param name="isEqual">True or False</param>
         public static void ReadOut(int[][] toRead, bool isEqual)
         {
             int index = 0;
+            Console.WriteLine("");
 
             while (index < 2) {
+                Console.Write("Array {0}: ", index + 1);
+
                 for (int i = 0; i < toRead[index].GetLength(0); i++)
                 {
                     Console.Write("{0} ", toRead[index][i]);
@@ -94,6 +112,7 @@ namespace Chp7Lsn2
                 Console.WriteLine("");
             }
 
+            Console.WriteLine("");
             Console.WriteLine("Is Equal? {0}.", isEqual);
             Console.ReadLine();
         }
