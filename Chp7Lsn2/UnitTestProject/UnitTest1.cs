@@ -8,8 +8,9 @@ namespace UnitTestProject
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod()
+        public void TestMethod_ArrayEqual()
         {
+            int[][] jaggedArray = new int[2][];
         }
     }
 }

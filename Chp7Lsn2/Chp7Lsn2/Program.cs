@@ -12,7 +12,8 @@ namespace Chp7Lsn2
         {
             int[][] jaggedArray = new int[2][];
             int[][] toCompare = UsesrInput(jaggedArray);
-            ReadOut(toCompare);
+            bool isEqual = EquivalentCheck(toCompare);
+            ReadOut(toCompare, isEqual);
         }
 
         public static int[][] UsesrInput(int[][] jaggedArray)
@@ -59,19 +60,41 @@ namespace Chp7Lsn2
             return jaggedArray;
         }
 
-        public static void ReadOut(int[][] toCompare)
+        public static bool EquivalentCheck(int[][] toCompare)
+        {
+            int lengthZero = toCompare[0].GetLength(0);
+
+            if(toCompare[0].GetLength(0) == toCompare[1].GetLength(0))
+            {
+                for (int i = 0; i < lengthZero; i++)
+                {
+                    bool isEqual = toCompare[0][i] == toCompare[1][i];
+                    if(isEqual == false)
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+
+        public static void ReadOut(int[][] toRead, bool isEqual)
         {
             int index = 0;
 
             while (index < 2) {
-                for (int i = 0; i < toCompare[index].GetLength(0); i++)
+                for (int i = 0; i < toRead[index].GetLength(0); i++)
                 {
-                    Console.Write("{0} ", toCompare[index][i]);
+                    Console.Write("{0} ", toRead[index][i]);
                 }
                 index++;
                 Console.WriteLine("");
             }
-            
+
+            Console.WriteLine("Is Equal? {0}.", isEqual);
             Console.ReadLine();
         }
     }
