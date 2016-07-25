@@ -16,22 +16,20 @@ namespace Chp7Lsn1
             DisplayArray(displayArray);
         }
 
-        public static int[] FillArray(int[] arrayEmpty)
+        public static int[] FillArray(int[] numbers)
         {
             for(int i = 0; i < 20; i++)
             {
-                arrayEmpty[i] = i * 5;
+                numbers[i] = i * 5;
             }
-
-            int[] arrayFull = arrayEmpty;
-            return arrayFull;
+            return numbers;
         }
 
         public static void DisplayArray(int[] displayArray)
         {
-            for (int mulFive = 0; mulFive < 20; mulFive++)
+            for (int multiplyNumber = 0; multiplyNumber < 20; multiplyNumber++)
             {
-                Console.Write("{0} ", displayArray[mulFive]);
+                Console.Write("{0} ", displayArray[multiplyNumber]);
             }
 
             Console.ReadLine();
