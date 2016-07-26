@@ -76,6 +76,8 @@ namespace Chp8Lsn4
                 Console.WriteLine("");
                 String.Join("", binaryNumber);
             }
+
+            Console.ReadLine();
         }
     }
 }
