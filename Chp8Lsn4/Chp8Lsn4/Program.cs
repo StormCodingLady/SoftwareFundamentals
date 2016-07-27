@@ -15,6 +15,10 @@ namespace Chp8Lsn4
             DisplayBinaryNumber(binaryNumber, decimalNumber);
         }
 
+        /// <summary>
+        /// Accepts an integer from the user.
+        /// </summary>
+        /// <returns>integer</returns>
         public static int UserInput()
         {
             int isInput = 0;
@@ -39,6 +43,11 @@ namespace Chp8Lsn4
             return isInput;
         }
 
+        /// <summary>
+        /// Converts an integer to a binary value.
+        /// </summary>
+        /// <param name="decimalNumber"></param>
+        /// <returns>An array of 1's and 0's.</returns>
         public static int[] DecimalToBinary(int decimalNumber)
         {
             if(decimalNumber < 0)
@@ -68,6 +77,11 @@ namespace Chp8Lsn4
             return binaryHolder;
         }
 
+        /// <summary>
+        /// Displays to the user their integer in binary form.
+        /// </summary>
+        /// <param name="binaryNumber">Array of 1's and 0's</param>
+        /// <param name="signIndicator">Users decimal number</param>
         public static void DisplayBinaryNumber(int[] binaryNumber, int signIndicator)
         {
             string numberBinary = string.Join("", binaryNumber);
