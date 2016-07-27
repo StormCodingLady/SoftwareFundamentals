@@ -11,7 +11,7 @@ namespace Chp8Lsn4
         static void Main(string[] args)
         {
             int decimalNumber = UserInput();
-            double[] binaryNumber = DecimalToBinary(decimalNumber);
+            int[] binaryNumber = DecimalToBinary(decimalNumber);
             DisplayBinaryNumber(binaryNumber, decimalNumber);
         }
 
@@ -39,12 +39,17 @@ namespace Chp8Lsn4
             return isInput;
         }
 
-        public static double[] DecimalToBinary(double numberDecimal)
+        public static int[] DecimalToBinary(int decimalNumber)
         {
-            double[] binaryHolder = new double[1];
+            if(decimalNumber < 0)
+            {
+                decimalNumber *= -1; 
+            }
+
+            int[] binaryHolder = new int[1];
             int i = 0;
 
-            while(numberDecimal >= 1)
+            while(decimalNumber >= 1)
             {
                 int numColumns = binaryHolder.GetLength(0);
                 
@@ -53,9 +58,9 @@ namespace Chp8Lsn4
                     Array.Resize(ref binaryHolder, i + 1);
                 }
 
-                double remainder = numberDecimal % 2; // 1 or 0
+                int remainder = decimalNumber % 2; // 1 or 0
                 binaryHolder[i] = remainder;
-                numberDecimal = Math.Floor(numberDecimal / 2);
+                decimalNumber = (int)Math.Floor(decimalNumber / 2.0);
                 i++;
             }
 
@@ -63,20 +68,28 @@ namespace Chp8Lsn4
             return binaryHolder;
         }
 
-        public static void DisplayBinaryNumber(double[] binaryNumber, int signIndicator)
+        public static void DisplayBinaryNumber(int[] binaryNumber, int signIndicator)
         {
-            if(signIndicator < 0)
+            string numberBinary = string.Join("", binaryNumber);
+            int arrayLength = binaryNumber.GetLength(0);
+            int increment = 4 - arrayLength % 4;
+
+            if (signIndicator < 0)
             {
-                Console.WriteLine("");
                 Console.Write("-");
-                String.Join("", binaryNumber);
-            }
-            else
-            {
-                Console.WriteLine("");
-                String.Join("", binaryNumber);
             }
 
+            if (arrayLength % 4 != 0)
+            {
+                numberBinary = numberBinary.PadLeft(arrayLength + increment, '0');
+            }
+
+            for (int i = numberBinary.Length; i > 0; i = i - 4)
+            {
+                numberBinary = numberBinary.Insert(i, " ");  
+            }
+            
+            Console.Write(numberBinary);
             Console.ReadLine();
         }
     }

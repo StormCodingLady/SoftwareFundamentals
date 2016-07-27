@@ -10,8 +10,8 @@ namespace UnitTestProject
         [TestMethod]
         public void TestMethod1()
         {
-            double[] officialBinary = { 1, 0, 0, 1, 0, 1, 0, 0 };
-            double[] testBinary = Program.DecimalToBinary(148);
+            int[] officialBinary = { 1, 0, 0, 1, 0, 1, 0, 0 };
+            int[] testBinary = Program.DecimalToBinary(148);
             int numColumns = officialBinary.GetLength(0);
 
             for(int i = 0; i < numColumns; i++)
