@@ -10,9 +10,9 @@ namespace Chp8Lsn4
     {
         static void Main(string[] args)
         {
-            int decimalNumber = UserInput();
-            int[] binaryNumber = DecimalToBinary(decimalNumber);
-            DisplayBinaryNumber(binaryNumber, decimalNumber);
+            int convertNumber = UserInput();
+            int[] binaryNumber = DecimalToBinary(convertNumber);
+            DisplayBinaryNumber(binaryNumber, convertNumber);
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace Chp8Lsn4
         /// </summary>
         /// <param name="decimalNumber"></param>
         /// <returns>An array of 1's and 0's.</returns>
-        public static int[] DecimalToBinary(int decimalNumber)
+        public static int[] IntegerToBinary(int decimalNumber)
         {
             if(decimalNumber < 0)
             {
