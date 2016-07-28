@@ -84,9 +84,6 @@ namespace Chp9Lsn3
                 case 9:
                     digitName = "Nine";
                     break;
-                case 10:
-                    digitName = "Ten";
-                    break;
                 default:
                     digitName = "Error";
                     break;
