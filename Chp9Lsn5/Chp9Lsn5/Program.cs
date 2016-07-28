@@ -10,7 +10,35 @@ namespace Chp9Lsn5
     {
         static void Main(string[] args)
         {
-            int[] firstArray = { 2, 5, 2, 3, 4, 2, 8, 9, 7, 9 };
+            int i = UserInput();
+            int[] randomArray = { 2, 5, 2, 3, 4, 2, 8, 9, 7, 9 };
+
+            IsLargerThan(randomArray, i);
+        }
+
+        public static int UserInput()
+        {
+            int isInput = 10;
+            bool resolved = false;
+            Console.WriteLine("Please enter an index number (0-9). This will check if it is larger than both its neighbors in a number circle.");
+
+            while (resolved == false)
+            {
+                string input = Console.ReadLine();
+                bool isInt = System.Int32.TryParse(input, out isInput);
+
+                if (isInt && isInput > -1 && isInput < 10)
+                {
+                    resolved = true;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Input!");
+                    resolved = false;
+                }
+            }
+
+            return isInput;
         }
 
         public static bool IsLargerThan(int[] randomArray, int i)
