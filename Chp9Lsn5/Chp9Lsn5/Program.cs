@@ -16,6 +16,10 @@ namespace Chp9Lsn5
             IsLargerThan(randomArray, i);
         }
 
+        /// <summary>
+        /// Takes an index number from user.
+        /// </summary>
+        /// <returns>number 0-9</returns>
         public static int UserInput()
         {
             int isInput = 10;
@@ -41,6 +45,12 @@ namespace Chp9Lsn5
             return isInput;
         }
 
+        /// <summary>
+        /// Discovers if the number within the index is larger than its neighbors.
+        /// </summary>
+        /// <param name="randomArray">Given Array</param>
+        /// <param name="i">Index</param>
+        /// <returns>true or false</returns>
         public static bool IsLargerThan(int[] randomArray, int i)
         {
             if(i == 0 || i == 9)
@@ -56,6 +66,12 @@ namespace Chp9Lsn5
             return false;
         }
 
+        /// <summary>
+        /// Discovers if the number within the index is larger than its neighbors. Handles the special indexes 0 and 9.
+        /// </summary>
+        /// <param name="randomArray">Given Array</param>
+        /// <param name="i">Index</param>
+        /// <returns>true or false</returns>
         public static bool OutsideCase(int[] randomArray, int i)
         {
             int innerValue = 8;
