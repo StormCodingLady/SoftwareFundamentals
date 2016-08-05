@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UserInputHandler;
 
 namespace Chp9Lsn11
 {
@@ -11,13 +12,9 @@ namespace Chp9Lsn11
         static void Main(string[] args)
         {
             string userCommand = TextMenu();
-            //CallOption(userCommand);
-            double[] numberSequence = { 1, 2, 3, 4, 5, 6 };
-            Console.WriteLine(ReverseNumbers());
-            Console.WriteLine(CalculateAverage(numberSequence));
-            Console.WriteLine(SolveLinear());
+            MultipleType FinalAnswer = CallOption(userCommand);
+            PrintAnswer(userCommand, FinalAnswer);
             Console.ReadLine();
-        
         }
 
         public static string TextMenu()
@@ -28,8 +25,9 @@ namespace Chp9Lsn11
             Console.WriteLine("that are returned in reverse order. Option 'average' calculates the average of a series of");
             Console.WriteLine("numbers. Option 'equation' calculates x of the linear equation. Type the name of the option");
             Console.WriteLine("you desire and press enter.");
+            Console.WriteLine("");
 
-            while (resolved)
+            while (resolved == false)
             {
                 string input = Console.ReadLine();
 
@@ -48,33 +46,39 @@ namespace Chp9Lsn11
             return answer;
         }
 
-        //public static void CallOption(string optionSelect)
-        //{
-        //    if(optionSelect == "reverse")
-        //    {
-        //        int[] reverseArray = UserInput(optionSelect);
-        //    }
+        public static MultipleType CallOption(string optionSelect)
+        {
+            MultipleType userInput = new MultipleType();
 
-        //    if (optionSelect == "average")
-        //    {
-        //        int[] averageArray = UserInput(optionSelect);
-        //    }
+            if (optionSelect == "reverse")
+            {
+                userInput.integer = UserInput.UserString();
+                userInput.integer = ComputerCalculate(userInput.integer);
+            }
 
-        //    if (optionSelect == "equation")
-        //    {
-        //        int[] equationArray = new int[2];
-        //        equationArray = UserInput(optionSelect);
-        //    }
-        //}
+            if (optionSelect == "average")
+            {
+                userInput.numberSequence = UserInput.UserArray();
+                userInput.numberSequence = ComputerCalculate(userInput.numberSequence);
+            }
 
-        public static string ReverseNumbers(string integer = "12345689")
+            if (optionSelect == "equation")
+            {
+                userInput.twoDouble = UserInput.UserDoubles();
+                userInput.x = ComputerCalculate(userInput.twoDouble.a, userInput.twoDouble.b);
+            }
+
+            return userInput;
+        }
+
+        public static string ComputerCalculate(string integer)
         {
             char[] integerArray = integer.ToCharArray();
             Array.Reverse(integerArray);
             return new string(integerArray);
         }
 
-        public static double[] CalculateAverage(double[] numberSequence)
+        public static double[] ComputerCalculate(double[] numberSequence)
         {
             double sum = 0;
             int numColumns = numberSequence.GetLength(0);
@@ -89,10 +93,39 @@ namespace Chp9Lsn11
             return averageArray;
         }
 
-        public static double SolveLinear(double a = 5, double b = 5)
+        public static double ComputerCalculate(double a, double b)
         {
             double x = -b / a;
             return x;
+        }
+
+        public static void PrintAnswer(string optionSelect, MultipleType FinalAnswer)
+        {
+            if (optionSelect == "reverse")
+            {
+                Console.WriteLine("");
+                Console.WriteLine("Result: {0}", FinalAnswer.integer);
+            }
+
+            if (optionSelect == "average")
+            {
+                Console.WriteLine("");
+                Console.WriteLine("Result: {0}", FinalAnswer.numberSequence);
+            }
+
+            if (optionSelect == "equation")
+            {
+                Console.WriteLine("");
+                Console.WriteLine("Result: {0}", FinalAnswer.x);
+            }
+        }
+
+        public class MultipleType
+        {
+            public string integer;
+            public double[] numberSequence;
+            public double x;
+            public UserInput.TwoDouble twoDouble;
         }
     }
 }
