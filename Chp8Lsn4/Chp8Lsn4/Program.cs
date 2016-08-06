@@ -11,7 +11,7 @@ namespace Chp8Lsn4
         static void Main(string[] args)
         {
             int convertNumber = UserInput();
-            int[] binaryNumber = DecimalToBinary(convertNumber);
+            int[] binaryNumber = IntegerToBinary(convertNumber);
             DisplayBinaryNumber(binaryNumber, convertNumber);
         }
 
@@ -58,7 +58,7 @@ namespace Chp8Lsn4
             int[] binaryHolder = new int[1];
             int i = 0;
 
-            while(decimalNumber >= 1)
+            while(decimalNumber > 0)
             {
                 int numColumns = binaryHolder.GetLength(0);
                 
