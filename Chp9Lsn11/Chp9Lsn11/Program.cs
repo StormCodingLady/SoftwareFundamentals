@@ -11,21 +11,27 @@ namespace Chp9Lsn11
     {
         static void Main(string[] args)
         {
-            string userCommand = TextMenu();
+            string answer = "Error";
+            string userCommand = TextMenu(answer);
             MultipleType FinalAnswer = CallOption(userCommand);
             PrintAnswer(userCommand, FinalAnswer);
             Console.ReadLine();
         }
 
-        public static string TextMenu()
+        public static string TextMenu(string answer)
         {
             bool resolved = false;
-            string answer = "Error";
+            
             Console.WriteLine("This program has three options. Option 'reverse' allows you to enter a series of numbers ");
             Console.WriteLine("that are returned in reverse order. Option 'average' calculates the average of a series of");
             Console.WriteLine("numbers. Option 'equation' calculates x of the linear equation. Type the name of the option");
             Console.WriteLine("you desire and press enter.");
             Console.WriteLine("");
+
+            if(answer != "Error")
+            {
+                resolved = true;
+            }
 
             while (resolved == false)
             {
@@ -64,8 +70,8 @@ namespace Chp9Lsn11
 
             if (optionSelect == "equation")
             {
-                userInput.twoDouble = UserInput.UserDoubles();
-                userInput.x = ComputerCalculate(userInput.twoDouble.a, userInput.twoDouble.b);
+                userInput.threeDouble = UserInput.UserDoubles();
+                userInput.x = ComputerCalculate(userInput.threeDouble.a, userInput.threeDouble.b, userInput.threeDouble.c);
             }
 
             return userInput;
@@ -93,9 +99,9 @@ namespace Chp9Lsn11
             return averageArray;
         }
 
-        public static double ComputerCalculate(double a, double b)
+        public static double ComputerCalculate(double a, double b, double c)
         {
-            double x = -b / a;
+            double x = (c - b) / a;
             return x;
         }
 
@@ -125,7 +131,7 @@ namespace Chp9Lsn11
             public string integer;
             public double[] numberSequence;
             public double x;
-            public UserInput.TwoDouble twoDouble;
+            public UserInput.ThreeDouble threeDouble;
         }
     }
 }

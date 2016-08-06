@@ -10,6 +10,7 @@ namespace UserInputHandler
     {
         static void Main(string[] args)
         {
+
         }
 
         public static string UserString()
@@ -79,19 +80,21 @@ namespace UserInputHandler
             return userSeries;
         }
 
-        public static TwoDouble UserDoubles()
+        public static ThreeDouble UserDoubles()
         {
             double a = -21;
             double b = -21;
+            double c = 0;
             string current = "a";
             double intInput;
             int m = 0;
 
-            Console.WriteLine("For the linear equation 'ax + b = 0', please enter the variables 'a' and 'b'. Any number can");
-            Console.WriteLine("be entered as long as 'a != 0'. After entering each variable press enter.");
-            Console.WriteLine("");
+            Console.WriteLine("For the linear equation 'ax + b = 0' with '0' being the translation value,");
+            Console.WriteLine("please enter for the variables 'a', 'b', and the 'translation value'. Any");
+            Console.WriteLine("number can be entered as long as 'a != 0'. After entering each variable");
+            Console.WriteLine("press enter.");
 
-            while (m < 2)
+            while (m < 3)
             {
                 string input = Console.ReadLine();
                 bool isInt = System.Double.TryParse(input, out intInput);
@@ -108,12 +111,16 @@ namespace UserInputHandler
                         current = "b";
                         b = intInput;
                         break;
+                    case 2:
+                        current = "the translation value";
+                        c = intInput;
+                        break;
                     default:
                         Console.WriteLine("Error");
                         break;
                 }
 
-                if (isInt)
+                if (isInt && a != 0)
                 {
                     m++;
                 }
@@ -124,16 +131,18 @@ namespace UserInputHandler
                 }
             }
 
-            TwoDouble aPlusB = new TwoDouble();
-            aPlusB.a = a;
-            aPlusB.b = b;
-            return aPlusB;
+            ThreeDouble values = new ThreeDouble();
+            values.a = a;
+            values.b = b;
+            values.c = c;
+            return values;
         }
 
-        public class TwoDouble
+        public class ThreeDouble
         {
             public double a;
             public double b;
+            public double c;
         }
     }
 }

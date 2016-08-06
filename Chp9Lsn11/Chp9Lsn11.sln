@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chp9Lsn11", "Chp9Lsn11\Chp9
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserInputHandler", "UserInputHandler\UserInputHandler.csproj", "{729E097F-C0E3-4028-B0D1-6F5AE1A64A56}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptionTester", "OptionTester\OptionTester.csproj", "{D70010ED-D8F0-4704-9352-53049DD04C85}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{729E097F-C0E3-4028-B0D1-6F5AE1A64A56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{729E097F-C0E3-4028-B0D1-6F5AE1A64A56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{729E097F-C0E3-4028-B0D1-6F5AE1A64A56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D70010ED-D8F0-4704-9352-53049DD04C85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D70010ED-D8F0-4704-9352-53049DD04C85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D70010ED-D8F0-4704-9352-53049DD04C85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D70010ED-D8F0-4704-9352-53049DD04C85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
