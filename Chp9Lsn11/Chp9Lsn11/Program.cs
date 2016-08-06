@@ -116,7 +116,7 @@ namespace Chp9Lsn11
             if (optionSelect == "average")
             {
                 Console.WriteLine("");
-                Console.WriteLine("Result: {0}", FinalAnswer.numberSequence);
+                Console.WriteLine("Result: {0}", FinalAnswer.numberSequence[0]);
             }
 
             if (optionSelect == "equation")

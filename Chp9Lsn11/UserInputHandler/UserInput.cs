@@ -18,6 +18,7 @@ namespace UserInputHandler
             int isInput;
             bool resolved = false;
             string answer = "Error";
+            Console.WriteLine("");
             Console.WriteLine("Enter in a positive integer that ranges from 1 to 50,000,000. The digits will be returned in");
             Console.WriteLine("reverse order.");
             Console.WriteLine("");
@@ -35,7 +36,8 @@ namespace UserInputHandler
                 else
                 {
                     Console.WriteLine("");
-                    Console.Write("Invalid Input!");
+                    Console.WriteLine("Invalid Input!");
+                    Console.WriteLine("");
                 }
             }
 
@@ -48,8 +50,9 @@ namespace UserInputHandler
             bool resolved = false;
             double[] userSeries = new double[1];
             int i = 0;
-            Console.WriteLine("Please enter a series of numbers. When finished enter the word 'done'. The average will then");
-            Console.WriteLine("be calculated. The sequence of numbers cannot be empty.");
+            Console.WriteLine("");
+            Console.WriteLine("Please enter a series of numbers. After typing a nummber press 'enter'. When finished enter the");
+            Console.WriteLine("word 'done'. The average will then be calculated. The sequence of numbers cannot be empty.");
             Console.WriteLine("");
 
             while (resolved == false)
@@ -73,7 +76,9 @@ namespace UserInputHandler
                 }
                 else
                 {
+                    Console.WriteLine("");
                     Console.WriteLine("Invalid Input!");
+                    Console.WriteLine("");
                 }
             }
 
@@ -89,10 +94,12 @@ namespace UserInputHandler
             double intInput;
             int m = 0;
 
+            Console.WriteLine("");
             Console.WriteLine("For the linear equation 'ax + b = 0' with '0' being the translation value,");
             Console.WriteLine("please enter for the variables 'a', 'b', and the 'translation value'. Any");
             Console.WriteLine("number can be entered as long as 'a != 0'. After entering each variable");
             Console.WriteLine("press enter.");
+            Console.WriteLine("");
 
             while (m < 3)
             {
@@ -104,15 +111,15 @@ namespace UserInputHandler
                 switch (m)
                 {
                     case 0:
-                        current = "a";
+                        current = "'a'";
                         a = intInput;
                         break;
                     case 1:
-                        current = "b";
+                        current = "'b'";
                         b = intInput;
                         break;
                     case 2:
-                        current = "the translation value";
+                        current = "the 'translation value'";
                         c = intInput;
                         break;
                     default:
@@ -126,7 +133,8 @@ namespace UserInputHandler
                 }
                 else
                 {
-                    Console.WriteLine("Invalid input! Enter an appropriate value for '{0}'.", current);
+                    Console.WriteLine("");
+                    Console.WriteLine("Invalid input! Enter an appropriate value for {0}.", current);
                     Console.WriteLine("");
                 }
             }
