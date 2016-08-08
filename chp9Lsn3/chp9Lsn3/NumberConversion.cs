@@ -64,52 +64,16 @@ namespace Chp9Lsn3
         /// <returns>String</returns>
         public static string NameOfDigit(int digit)
         {
-            string digitName = "Error";
+            string[] numberWords = { "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine" };
 
-            switch (digit)
-            {
-                case 0:
-                    digitName = "Zero";
-                    break;
-                case 1:
-                    digitName = "One";
-                    break;
-                case 2:
-                    digitName = "Two";
-                    break;
-                case 3:
-                    digitName = "Three";
-                    break;
-                case 4:
-                    digitName = "Four";
-                    break;
-                case 5:
-                    digitName = "Five";
-                    break;
-                case 6:
-                    digitName = "Six";
-                    break;
-                case 7:
-                    digitName = "Seven";
-                    break;
-                case 8:
-                    digitName = "Eight";
-                    break;
-                case 9:
-                    digitName = "Nine";
-                    break;
-                default:
-                    digitName = "Error";
-                    break;
-            }
-
-            return digitName;
+            string numberWord = numberWords[digit];
+            return numberWord;
         }
 
         /// <summary>
         /// Gives the user the English word of the final digit of their number.
         /// </summary>
-        /// <param name="numberWord">A word representing a number of 0-9.</param>
+        /// <param name="numberWord">A word representing a number from 0-9.</param>
         public static void PrintWord(string numberWord)
         {
             Console.Write("The English name of the last digit is '{0}'", numberWord);
