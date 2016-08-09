@@ -13,7 +13,8 @@ namespace Chp9Lsn5
             int i = UserInput();
             int[] randomArray = { 2, 5, 2, 3, 4, 2, 8, 9, 7, 9 };
 
-            IsLargerThan(randomArray, i);
+            bool greaterLesser = IsLargerThan(randomArray, i);
+            UserAnswer(greaterLesser);
         }
 
         /// <summary>
@@ -31,7 +32,7 @@ namespace Chp9Lsn5
                 string input = Console.ReadLine();
                 bool isInt = System.Int32.TryParse(input, out isInput);
 
-                if (isInt && isInput > -1 && isInput < 10)
+                if (isInt && isInput >= 0 && isInput < 10)
                 {
                     resolved = true;
                 }
@@ -53,12 +54,10 @@ namespace Chp9Lsn5
         /// <returns>true or false</returns>
         public static bool IsLargerThan(int[] randomArray, int i)
         {
-            if(i == 0 || i == 9)
-            {
-                return OutsideCase(randomArray, i);
-            }
+            int innerValue = (i - 1) % 10;
+            int outerValue = (i + 1) % 10;
 
-            if (randomArray[i] > randomArray[i + 1] && randomArray[i] > randomArray[i - 1])
+            if( i > randomArray[innerValue] && i > randomArray[outerValue])
             {
                 return true;
             }
@@ -67,27 +66,13 @@ namespace Chp9Lsn5
         }
 
         /// <summary>
-        /// Discovers if the number within the index is larger than its neighbors. Handles the special indexes 0 and 9.
+        /// Gives the user the answer as to whether or not the selected number is greater than its neighbors.
         /// </summary>
-        /// <param name="randomArray">Given Array</param>
-        /// <param name="i">Index</param>
-        /// <returns>true or false</returns>
-        public static bool OutsideCase(int[] randomArray, int i)
+        /// <param name="greaterLesser">IsLargerThan final evaluation</param>
+        public static void UserAnswer(bool greaterLesser)
         {
-            int innerValue = 8;
-            int outerValue = 0;
-            if (i == 0)
-            {
-                innerValue = 9;
-                outerValue = 1;
-            }
-
-            if (randomArray[i] > randomArray[innerValue] && randomArray[i] > randomArray[outerValue])
-            {
-                return true;
-            }
-
-            return false;
+            Console.WriteLine("Is larger than neighbors? {0}!", greaterLesser);
+            Console.Read();
         }
     }
 }
