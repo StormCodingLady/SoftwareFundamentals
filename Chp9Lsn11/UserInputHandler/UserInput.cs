@@ -10,7 +10,7 @@ namespace UserInputHandler
     {
         static void Main(string[] args)
         {
-
+            //No main method.
         }
 
         public static string GetUserInput()
