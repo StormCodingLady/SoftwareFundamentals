@@ -9,25 +9,11 @@ namespace OptionTester
     public class UnitTest
     {
         [TestMethod]
-        public void TextMenu_Test()
-        {
-            string[] possibleInput = { "reverse", "average", "equation" };
-            int i = 0;
-
-            foreach (string command in possibleInput)
-            {
-                string userCommand = Program.TextMenu(possibleInput[i]);
-                Assert.IsTrue(command == userCommand);
-                i++;
-            }
-        }
-
-        [TestMethod]
         public void StringReverse_Test()
         {
             string inputString = "54321";
             string testString = "12345";
-            string isEquivalent = Program.ComputerCalculate(inputString);
+            string isEquivalent = Program.ReverseIntegerOrder(inputString);
 
             Assert.IsTrue(testString == isEquivalent);
         }
@@ -37,7 +23,7 @@ namespace OptionTester
         {
             double[] inputArray = { 1, 2, 3, 4, 5};
             double[] testArray = { 3 };
-            double[] isEquivalent = Program.ComputerCalculate(inputArray);
+            double[] isEquivalent = Program.CalculateAverage(inputArray);
 
             Assert.IsTrue(testArray[0] == isEquivalent[0]);
         }
@@ -46,7 +32,7 @@ namespace OptionTester
         public void LinearSolve_Test()
         {
             double testX = 7;
-            double isEquivalent = Program.ComputerCalculate(2, -4, 10);
+            double isEquivalent = Program.SolveLinearEquation(2, -4, 10);
 
             Assert.IsTrue(testX == isEquivalent);
         }

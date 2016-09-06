@@ -13,7 +13,36 @@ namespace UserInputHandler
 
         }
 
-        public static string UserString()
+        public static string GetUserInput()
+        {
+            string answer = "Error";
+            bool resolved = false;
+
+            Console.WriteLine("This program has three options. Option 'reverse' allows you to enter a series of numbers ");
+            Console.WriteLine("that are returned in reverse order. Option 'average' calculates the average of a series of");
+            Console.WriteLine("numbers. Option 'equation' calculates x of the linear equation. Type the name of the option");
+            Console.WriteLine("you desire and press enter.");
+            Console.WriteLine("");
+
+            while (resolved == false)
+            {
+                string input = Console.ReadLine();
+
+                if (input != "reverse" && input != "average" && input != "equation")
+                {
+                    Console.WriteLine("");
+                    Console.Write("Invalid Input!");
+                }
+                else
+                {
+                    answer = input;
+                    resolved = true;
+                }
+            }
+            return answer;
+        }
+
+        public static string GetUserStringOfNumbers()
         {
             int isInput;
             bool resolved = false;
@@ -44,7 +73,7 @@ namespace UserInputHandler
             return answer;
         }
 
-        public static double[] UserArray()
+        public static double[] GetUserArrayOfNumbers()
         {
             double isInput;
             bool resolved = false;
@@ -85,7 +114,7 @@ namespace UserInputHandler
             return userSeries;
         }
 
-        public static ThreeDouble UserDoubles()
+        public static ThreeDouble GetUserLinearEquNumbers()
         {
             double a = -21;
             double b = -21;

@@ -11,80 +11,50 @@ namespace Chp9Lsn11
     {
         static void Main(string[] args)
         {
-            string answer = "Error";
-            string userCommand = TextMenu(answer);
+            string userCommand = UserInput.GetUserInput();
             MultipleType FinalAnswer = CallOption(userCommand);
             PrintAnswer(userCommand, FinalAnswer);
             Console.ReadLine();
         }
 
-        public static string TextMenu(string answer)
-        {
-            bool resolved = false;
-            
-            Console.WriteLine("This program has three options. Option 'reverse' allows you to enter a series of numbers ");
-            Console.WriteLine("that are returned in reverse order. Option 'average' calculates the average of a series of");
-            Console.WriteLine("numbers. Option 'equation' calculates x of the linear equation. Type the name of the option");
-            Console.WriteLine("you desire and press enter.");
-            Console.WriteLine("");
-
-            if(answer != "Error")
-            {
-                resolved = true;
-            }
-
-            while (resolved == false)
-            {
-                string input = Console.ReadLine();
-
-                if (input != "reverse" && input != "average" && input != "equation")
-                {
-                    Console.WriteLine("");
-                    Console.Write("Invalid Input!");
-                }
-                else
-                {
-                    answer = input;
-                    resolved = true;
-                }
-            }
-
-            return answer;
-        }
-
         public static MultipleType CallOption(string optionSelect)
         {
             MultipleType userInput = new MultipleType();
+            
+            if (optionSelect == "Error")
+            {
+                userInput.noError = false;
+            }
 
             if (optionSelect == "reverse")
             {
-                userInput.integer = UserInput.UserString();
-                userInput.integer = ComputerCalculate(userInput.integer);
+                userInput.integer = UserInput.GetUserStringOfNumbers();
+                userInput.integer = ReverseIntegerOrder(userInput.integer);
             }
 
             if (optionSelect == "average")
             {
-                userInput.numberSequence = UserInput.UserArray();
-                userInput.numberSequence = ComputerCalculate(userInput.numberSequence);
+                userInput.numberSequence = UserInput.GetUserArrayOfNumbers();
+                userInput.numberSequence = CalculateAverage(userInput.numberSequence);
             }
 
             if (optionSelect == "equation")
             {
-                userInput.threeDouble = UserInput.UserDoubles();
-                userInput.x = ComputerCalculate(userInput.threeDouble.a, userInput.threeDouble.b, userInput.threeDouble.c);
+                userInput.threeDouble = UserInput.GetUserLinearEquNumbers();
+                userInput.x = SolveLinearEquation(userInput.threeDouble.a, userInput.threeDouble.b, userInput.threeDouble.c);
             }
 
             return userInput;
         }
 
-        public static string ComputerCalculate(string integer)
+        public static string ReverseIntegerOrder(string integer)
         {
             char[] integerArray = integer.ToCharArray();
             Array.Reverse(integerArray);
             return new string(integerArray);
         }
 
-        public static double[] ComputerCalculate(double[] numberSequence)
+        public static double[] CalculateAverage(double[] numberSequence)
         {
             double sum = 0;
             int numColumns = numberSequence.GetLength(0);
@@ -96,10 +66,10 @@ namespace Chp9Lsn11
 
             double average = sum / numColumns;
             double[] averageArray = { average };
-            return averageArray;
+            return averageArray; //The purpose of returning an array is to make easy use of the class MultipleType.
         }
 
-        public static double ComputerCalculate(double a, double b, double c)
+        public static double SolveLinearEquation(double a, double b, double c)
         {
             double x = (c - b) / a;
             return x;
@@ -107,6 +77,12 @@ namespace Chp9Lsn11
 
         public static void PrintAnswer(string optionSelect, MultipleType FinalAnswer)
         {
+            if (FinalAnswer.noError == false)
+            {
+                Console.WriteLine("");
+                Console.WriteLine("Result: There was an error with the user input.");
+            }
+
             if (optionSelect == "reverse")
             {
                 Console.WriteLine("");
@@ -132,6 +108,7 @@ namespace Chp9Lsn11
             public double[] numberSequence;
             public double x;
             public UserInput.ThreeDouble threeDouble;
+            public bool noError;
         }
     }
 }
