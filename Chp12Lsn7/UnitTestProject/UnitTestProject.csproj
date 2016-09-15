@@ -53,6 +53,16 @@
     <Compile Include="UnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Chp12Lsn7\Chp12Lsn7.csproj">
+      <Project>{af16da53-8070-45cb-a640-e61b15201d48}</Project>
+      <Name>Chp12Lsn7</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UserCommunication\UserCommunication.csproj">
+      <Project>{5f26320f-5dc6-49ab-8fb7-e13372e789b0}</Project>
+      <Name>UserCommunication</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

@@ -12,12 +12,16 @@ namespace UserCommunication
         {
         }
 
-        public static int UserInput()
+        public static int UserInput(string userInput)
         {
             Console.WriteLine("Please enter a positive integer greater than zero.");
             Console.WriteLine("");
             Console.Write("> ");
-            string userInput = Console.ReadLine();
+
+            if (userInput == null)
+            {
+                userInput = Console.ReadLine();
+            }
             int userNumber = 0;
 
             try

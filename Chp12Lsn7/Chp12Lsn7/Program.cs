@@ -7,19 +7,30 @@ using UserCommunication;
 
 namespace Chp12Lsn7
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            int userNumber = 0;
+            int userNumber;
+            string emptyValue = null;
 
             try
             {
-                userNumber = UserBarrier.UserInput();
+                userNumber = UserBarrier.UserInput(emptyValue);
             }
             catch (ArgumentException lessThanZero)
             {
                 Console.WriteLine(lessThanZero.Message);
+                throw;
+            }
+            catch (FormatException invalidCharacter)
+            {
+                Console.WriteLine(invalidCharacter.Message);
+                throw;
+            }
+            catch (OverflowException tooLargeOrSmall)
+            {
+                Console.WriteLine(tooLargeOrSmall.Message);
                 throw;
             }
 
