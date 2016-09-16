@@ -12,6 +12,11 @@ namespace UserCommunication
         {
         }
 
+        /// <summary>
+        /// Takes a positive integer from the user and returns it.
+        /// </summary>
+        /// <param name="userInput">A null string. Value is changed within method. Allows for unit testing.</param>
+        /// <returns>A positive integer</returns>
         public static int UserInput(string userInput)
         {
             Console.WriteLine("Please enter a positive integer greater than zero.");
@@ -43,6 +48,11 @@ namespace UserCommunication
             return userNumber;
         }
 
+        /// <summary>
+        /// Takes the original postive integer and its square root and prints it to the screen.
+        /// </summary>
+        /// <param name="answerToPrint">Square root of the original integer</param>
+        /// <param name="userNumber">Positive integer</param>
         public static void PrintAnswer(double answerToPrint, int userNumber)
         {
             Console.WriteLine("");

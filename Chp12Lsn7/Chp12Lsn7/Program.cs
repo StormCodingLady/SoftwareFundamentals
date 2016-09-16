@@ -39,6 +39,11 @@ namespace Chp12Lsn7
             UserBarrier.PrintAnswer(finalAnswer, userNumber);
         }
 
+        /// <summary>
+        /// Calculates and returns the square root of a given number.
+        /// </summary>
+        /// <param name="numberToSqrt">A positive integer that should be square rooted</param>
+        /// <returns>The square root of an integer</returns>
         public static double CalculateSquareRoot(int numberToSqrt)
         {
             if (numberToSqrt <= 0)
