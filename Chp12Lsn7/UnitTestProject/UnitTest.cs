@@ -10,10 +10,10 @@ namespace UnitTestProject
     {
         [TestMethod]
         [ExpectedException(typeof(System.ArgumentException), "Invalid Input! Cannot enter a number less than or equal to zero.")]
-        public void SqrtTest()
+        public void Program_CalcSquareRootWithNegativeInput_ThrowsException()
         {
             int[] invalidNumbers = { 0, -2 };
-            int numberOfColumns = invalidNumbers.GetLength(0);
+            int numberOfColumns = invalidNumbers.Length;
 
             for (int i = 0; i < numberOfColumns; i++)
             {
@@ -24,7 +24,7 @@ namespace UnitTestProject
 
         [TestMethod]
         [ExpectedException(typeof(System.ArgumentException), "Invalid Input! Cannot enter a number less than or equal to zero.")]
-        public void UserInputTestArgument()
+        public void UserBarrier_ConfirmsInputEqualOrLessThanZero_ThrowsException()
         {
             string[] invalidNumbers = { "0", "-2" };
             int numberOfColumns = invalidNumbers.GetLength(0);
@@ -38,7 +38,7 @@ namespace UnitTestProject
 
         [TestMethod]
         [ExpectedException(typeof(System.FormatException))]
-        public void UserInputTestFormat()
+        public void UserBarrier_ConfirmsNonAcceptanceOfNonNumbers_ThrowsException()
         {
             string[] invalidNumbers = { "a", "apple" };
             int numberOfColumns = invalidNumbers.GetLength(0);
@@ -52,7 +52,7 @@ namespace UnitTestProject
 
         [TestMethod]
         [ExpectedException(typeof(System.OverflowException))]
-        public void UserInputTestOverflow()
+        public void UserBarrier_TestsNumbersLargerThanTheMaxOrMin_ThrowsException()
         {
             string[] invalidNumbers = { "2147483648", "–2147483649" };
             int numberOfColumns = invalidNumbers.GetLength(0);
@@ -65,7 +65,7 @@ namespace UnitTestProject
         }
 
         [TestMethod]
-        public void SquareRootCorrectness()
+        public void Program_TestForCorrectAnswers()
         {
             int[] positiveInput = { 4, 16, 256 };
             int[] correctOutput = { 2, 4, 16 };
@@ -83,7 +83,7 @@ namespace UnitTestProject
         }
 
         [TestMethod]
-        public void StringToIntCorrectness()
+        public void UserBarrier_StringToIntValidity()
         {
             string[] stringInput = { "1", "2", "3" };
             int[] integerOutput = { 1, 2, 3 };

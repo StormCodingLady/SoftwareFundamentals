@@ -41,8 +41,7 @@ namespace UserCommunication
             }
             finally
             {
-                Console.WriteLine("");
-                Console.WriteLine("Thank You!");
+                Console.WriteLine("\nThank You!");
             }
 
             return userNumber;
