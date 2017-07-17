@@ -10,6 +10,9 @@ namespace Chp10Lsn2
     {
         static void Main(string[] args)
         {
+            Kofm Program = new Kofm();
+            Program.Solve();
+            Console.ReadLine();
         }
     }
 }

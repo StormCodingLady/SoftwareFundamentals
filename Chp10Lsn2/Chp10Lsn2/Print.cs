@@ -10,8 +10,8 @@ namespace Chp10Lsn2
     {
         private int k;
         private int m;
-        
-        public Kofm (int k = 2, int m = 3)
+
+        public Kofm(int k = 2, int m = 3)
         {
             this.k = k;
             this.m = m;
@@ -28,6 +28,14 @@ namespace Chp10Lsn2
 
             int placeValue = k - 1;
 
+            foreach (int number in tuples)
+            {
+                string myString = string.Format("{0}", number);
+                Console.Write("{0} ", myString);
+            }
+            
+            Console.WriteLine();
+
             VariableVariations(tuples, placeValue);
         }
 
@@ -42,14 +50,61 @@ namespace Chp10Lsn2
             {
                 m -= 1;
                 tuples[placeValue] = m;
+
+                foreach (int number in tuples)
+                {
+                    string myString = string.Format("{0}", number);
+                    Console.Write("{0} ", myString);
+                }
+
+                Console.WriteLine();
+
                 VariableVariations(tuples, placeValue);
+            }
+            else if (placeValue == 0 && tuples[placeValue] == 1 && m == 1)
+            {
+                foreach (int number in tuples)
+                {
+                    string myString = string.Format("{0}", number);
+                    Console.Write("{0} ", myString);
+                }
+
+                Console.WriteLine();
+
+                return;
             }
             else if (m == 1 && placeValue > 0)
             {
                 placeValue -= 1;
-                tuples[placeValue] = m;
+                int temp = tuples[placeValue];
+
+                if (tuples[placeValue] != 0)
+                {
+                    temp = m - 1;
+                    tuples[placeValue] = temp;
+                    placeValue += 1;
+                }
+                else if(tuples[placeValue] == 4)
+
+                if (tuples[placeValue] == 0)
+                {
+                    return;
+                }
+
+                foreach (int number in tuples)
+                {
+                    string myString = string.Format("{0}", number);
+                    Console.Write("{0} ", myString);
+                }
+
+                Console.WriteLine();
+
                 VariableVariations(tuples, placeValue);
             }
+            //else if (m == 1 && placeValue == 0)
+            //{
+
+            //}
         }
     }
 }
