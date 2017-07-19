@@ -9,13 +9,9 @@ namespace Chp10Lsn2
 {
     class Program
     {
-        static void Main(string[] args, Loop stoof)
+        static void Main(string[] args, Loop breakthrough)
         {
-            Kofm Program = new Kofm();
-            Program.Solve();
-            Console.ReadLine();
-            //Loop gong = new Loop();
-            Console.WriteLine(stoof.width);
+            breakthrough.Solve();
         }
     }
 }
