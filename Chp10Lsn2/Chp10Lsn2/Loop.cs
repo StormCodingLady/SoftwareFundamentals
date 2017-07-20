@@ -17,30 +17,46 @@ namespace Chp10Lsn2
             this.width = width;
         }
 
-        private void Algo(int[] tuples, int position)
+        private void Algo(int[] tuples, int currentPosition, int maxPosition, int quantity)
         {
-            for (int i = 1; i <= quantity; i++)
+            if (currentPosition <= maxPosition)
             {
-                if (position > 0)
+                for (int i = 1; i <= quantity; i++)
                 {
-                    Algo(tuples, position - 1);
-                }
-                tuples[position]++;
-            }
+                    if (currentPosition < maxPosition)
+                    {
+                        Algo(tuples, currentPosition + 1, maxPosition, quantity);
+                    }
 
-            tuples[position] = 1;
+                    if (currentPosition == 1)
+                    {
+                        Print(tuples[0], tuples[1]);
+                    }
+
+                    if (tuples[currentPosition] + 1 != quantity + 1)
+                    {
+                        tuples[currentPosition]++;
+                    }
+                }
+            }
+           
+            tuples[currentPosition] = 1;
 
             return;
         }
 
         public void Solve()
         {
-            quantity++;
             var tuples = Enumerable
                 .Repeat(1, width)
                 .ToArray();
             
-            Algo(tuples, width); 
+            Algo(tuples, 0, width - 1, quantity); 
+        }
+
+        private void Print(int firstPlace, int secondPlace)
+        {
+            Console.WriteLine("{0}, {1}", firstPlace, secondPlace);
         }
      }
 }
