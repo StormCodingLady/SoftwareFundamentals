@@ -10,6 +10,9 @@ namespace Chp10Lsn4
     {
         static void Main(string[] args)
         {
+            Subset StringRecurse = new Subset();
+            StringRecurse.Solve();
+            Console.ReadLine();
         }
     }
 }
