@@ -8,5 +8,9 @@ namespace Chp13Lsn3
 {
     class Expression
     {
+        public void Check(string problem)
+        {
+
+        }
     }
 }

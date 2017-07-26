@@ -10,8 +10,7 @@ namespace Chp13Lsn3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(DateTime.Today.DayOfWeek);
-            Console.ReadLine();
+            
         }
     }
 }
