@@ -10,7 +10,7 @@ namespace Chp13Lsn3
     {
         static void Main(string[] args)
         {
-            
+            String
         }
     }
 }

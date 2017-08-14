@@ -11,7 +11,7 @@ namespace Chp10Lsn4
         private string[] game;
         private int length;
 
-        public Subset(int length = 2)
+        public Subset(int length = 6)
         {
             this.length = length;
         }
@@ -19,40 +19,36 @@ namespace Chp10Lsn4
         public void Solve()
         {
             game = new string[] { "rock", "paper", "scissors" };
-            string[] presentor = Enumerable
-                .Repeat("empty", length)
+
+            int[] presentor = Enumerable
+                .Repeat(length, length)
                 .ToArray();
 
             Recurse(game, presentor, 0, length - 1);
         }
 
-        public void Recurse(string[] game, string[] outcome, int myPosition, int max)
+        public void Recurse(string[] game, int[] outcome, int myPosition, int max)
         {
             if (myPosition <= max)
             {
-                for (int i = 0; i < 2; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     if (myPosition < max)
                     {
                         Recurse(game, outcome, myPosition + 1, max);
                     }
 
-                    outcome[myPosition] = game[i];
+                    outcome[myPosition] = i;
 
                     if (myPosition == 1)
                     {
-                        Print(outcome[0], outcome[1]);
-                    }
-
-                    if (myPosition < max)
-                    {
-                        myPosition++;
+                        Print(game[outcome[0]], game[outcome[1]]);
                     }
                 }
             }
         }
 
-        private void Print<T>( T firstPlace, T secondPlace)
+        private void Print(string firstPlace, string secondPlace)
         {
             Console.WriteLine("{0}, {1}", firstPlace, secondPlace);
         }
