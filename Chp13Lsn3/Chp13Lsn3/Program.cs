@@ -10,7 +10,9 @@ namespace Chp13Lsn3
     {
         static void Main(string[] args)
         {
-            String
+            Expression Expression = new Expression();
+
+            bool trueOrFalse = Expression.CheckParens("()");
         }
     }
 }
